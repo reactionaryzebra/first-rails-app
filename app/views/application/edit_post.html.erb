@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form method="post" action="/edit/<%= post['id'] %>">
+      <div className="_field">
+        <label>Title</label>
+        <input name="title" type="text" value="<%= post['title'] %>">
+      </div>
+      <div className="_field">
+        <label>Body</label>
+        <input name="body" type="text" value="<%= post['body'] %>">
+      </div>
+      <div className="_field">
+        <label>Author</label>
+        <input name="author" type="text" value="<%= post['author'] %>">
+      </div>
+      <input type="submit" value="Update Post" />
+    </form>
+  </body>
+</html>
