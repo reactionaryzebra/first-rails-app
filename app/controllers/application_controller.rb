@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
     connection.results_as_hash = true
 
     posts = connection.execute("SELECT * FROM posts")
-    render plain: posts
+    render 'application/list_posts', locals: { posts: posts }
   end
 end

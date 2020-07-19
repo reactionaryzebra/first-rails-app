@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <% posts.each do |post| %>
+        <div>
+          <h2>
+            <%= post['title'] %>
+          </h2>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>
