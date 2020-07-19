@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
 
     post = connection.execute("SELECT * FROM posts WHERE posts.id = ? LIMIT 1", post_id).first
 
-    render plain: post['title']
+    render 'application/show_post', locals: { post: post }
   end
 end
