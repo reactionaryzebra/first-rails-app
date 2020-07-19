@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     render 'application/show_post', locals: { post: post }
   end
   def new_post
-    render plain: 'This is where the form will go'
+    render 'application/new_post'
   end
 
   private
