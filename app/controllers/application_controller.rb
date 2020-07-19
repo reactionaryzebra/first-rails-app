@@ -41,6 +41,12 @@ class ApplicationController < ActionController::Base
     redirect_to '/posts'
 
   end
+  def edit_post
+    post_id = params['id']
+    post = connection.execute("SELECT * FROM posts WHERE posts.id = ? LIMIT 1", post_id).first
+
+    render plain: "EDITING POST #{post['id']}"
+  end
 
   private
 
