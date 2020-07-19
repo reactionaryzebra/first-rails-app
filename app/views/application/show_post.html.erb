@@ -13,5 +13,8 @@
     <main>
       <p><%= post['body'] %></p>
     </main>
+    <form method="post" action="/posts/<%= post['id'] %>" >
+      <input type="submit" value="Delete this post" />
+    </form>
   </body>
 </html>
