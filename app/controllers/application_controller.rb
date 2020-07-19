@@ -45,7 +45,26 @@ class ApplicationController < ActionController::Base
     post_id = params['id']
     post = connection.execute("SELECT * FROM posts WHERE posts.id = ? LIMIT 1", post_id).first
 
-    render plain: "EDITING POST #{post['id']}"
+    render 'application/edit_post', locals: { post: post }
+  end
+
+  def update_post
+    title, body, author, id = params.values_at('title', 'body', 'author', 'id')
+
+    update_query = <<-SQL
+      UPDATE posts
+      SET title = ?,
+          body = ?,
+          author = ?
+      WHERE posts.id = ?
+    SQL
+    connection.execute update_query,
+      title,
+      body,
+      author,
+      id
+
+    redirect_to "/posts/#{id}"
   end
 
   private
