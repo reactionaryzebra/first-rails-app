@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/posts/:id' => 'application#show_post'
   get '/posts' => 'application#list_posts'
   get '/new' => 'application#new_post'
+  post '/new' => 'application#create_post'
 end
