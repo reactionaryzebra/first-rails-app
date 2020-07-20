@@ -20,17 +20,12 @@ class ApplicationController < ActionController::Base
   def create_post
     title, body, author = params.values_at('title', 'body', 'author')
 
-    insert_query = <<-SQL
-      INSERT INTO posts (title, body, author, created_at)
-      VALUES (?, ?, ?, ?)
-    SQL
-
-    connection.execute insert_query,
-      title,
-      body,
-      author,
-      Date.current.to_s
-
+    post = BlogPost.new(
+      'title' => title,
+      'body' => body,
+      'author' => author
+    )
+    post.save
     redirect_to '/posts'
 
   end
