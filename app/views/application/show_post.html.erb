@@ -13,6 +13,7 @@
     <main>
       <p><%= post['body'] %></p>
     </main>
+    <a href="/edit/<%= post['id'] %>">Edit this post</a>
     <form method="post" action="/posts/<%= post['id'] %>" >
       <input type="submit" value="Delete this post" />
     </form>
